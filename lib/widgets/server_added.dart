@@ -65,9 +65,9 @@ class ServerAddedWidget extends StatelessWidget {
                               alignment: Alignment.topRight,
                               child: OutlinedButton(
                                   onPressed: () {
-                                    // context
-                                    //     .read<ServerDataCubit>()
-                                    //     .removeServer(server, index);
+                                    context
+                                        .read<ServerDataCubit>()
+                                        .deleteServer( index);
                                   },
                                   child: Icon(Icons.delete,
                                       color: Colors.white)))),

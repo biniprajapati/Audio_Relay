@@ -11,6 +11,7 @@ class ServerDataCubit extends Cubit<ServerDataState> {
 //hive box initialization
   var _userBox;
 
+
 //!function to load server data from hive //
 
   void loadServer() {
@@ -23,20 +24,35 @@ class ServerDataCubit extends Cubit<ServerDataState> {
 
 //!function to add server data to hive //
 
-  void addServer(Server server) async {
+  void addServer(Server server) {
     final List<Server> currntState = state.servers;
     print("bb");
     if (!currntState.contains(server)) {
       print("cc");
 
       _userBox.add(server);
+    
       final users = _userBox.values.cast<Server>().toList();
       print("dd");
 
       emit(ServerDataAdded(data: users));
     }
   }
+
+  void deleteServer(int index) {
+   
+
+
+      _userBox.deleteAt(index);
+      loadServer();
 }
+  }
+
+
+
+//!function to delete server data to hive //
+
+
 
 //!code for Hive Database//
 
